@@ -1,17 +1,14 @@
-let button = document.querySelector('#button');
-let inputt = document.querySelector('#input');
-let duplicate = document.querySelector('#duplicateField');
+const buttonid = document.querySelector('#button');
+const inputid = document.querySelector('#input');
+const duplicate = document.querySelector('#duplicateField');
 
-inputt.addEventListener('keydown', (event) => {
-    inputt.value = duplicate;
-    
+inputid.addEventListener('keyup',(event) => {
+    duplicate.textContent = inputid.value; 
 })
 
-button.addEventListener('click', (event) => {
-
+buttonid.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log(inputt.value);
-    inputt.value = "";
+    console.log(inputid.value);
     duplicate.textContent = "";
+    inputid.value = "";
 })
-
