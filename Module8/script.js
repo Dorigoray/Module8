@@ -1,5 +1,5 @@
-let minValue = parseInt(prompt('Минимальное знание числа для игры','0'));
-let maxValue = parseInt(prompt('Максимальное знание числа для игры','100'));
+let minValue = parseInt(prompt('Минимальное знание числа для игры','0')) || 0;
+let maxValue = parseInt(prompt('Максимальное знание числа для игры','100')) || 100;
 alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
 let answerNumber  = Math.floor((minValue + maxValue) / 2);
 let orderNumber = 1;
@@ -12,8 +12,8 @@ orderNumberField.innerText = orderNumber;
 answerField.innerText = `Вы загадали число ${answerNumber }?`;
 
 document.getElementById('btnRetry').addEventListener('click', function () {
-    minValue = parseInt(prompt('Минимальное знание числа для игры','0'));
-    maxValue = parseInt(prompt('Максимальное знание числа для игры','100'));
+    minValue = parseInt(prompt('Минимальное знание числа для игры','0')) || 0;
+    maxValue = parseInt(prompt('Максимальное знание числа для игры','100')) || 100;
     alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
     answerNumber  = Math.floor((minValue + maxValue) / 2);
     orderNumber=1;
@@ -84,5 +84,18 @@ document.getElementById('btnLess').addEventListener('click', function () {
     }
 })
 
-  
+document.querySelector('#button-min').addEventListener('click', (e) => {
+    e.preventDefault();
+    minValue = parseInt(minValueInput.value) || 0;
+    minValue < -999 ? minValue = -1000 : false;
+    alertMin.innerText = minValue;
+
+})
+
+document.querySelector('#button-max').addEventListener('click', (e) => {
+    e.preventDefault();
+    minValue = parseInt(minValueInput.value) || 100;
+    minValue < 999 ? minValue = 1000 : false;
+    alertMax.innerText = minValue;
+})
 
